@@ -78,6 +78,27 @@ az aks create \
 
 ## Step13: Get AKS Credentials
 az aks get-credentials --resource-group $(echo $group | jq .name -r) --name ${clusterName}
+>If you do not already have kubectl installed in your CLI, run the following command: az aks install-cli
+>Get the credentials for your cluster by running the following command:az aks get-credentials --resource-group demo-aks --name demoCluster
+>Open the Kubernetes dashboard by running the following command:az aks browse --resource-group demo-aks --name demoCluster
+
+## Step14: Get AKS node counts
+az aks show --resource-group demo-aks --name demoCluster --query agentPoolProfiles
+
+## Step14: Increase Node Counts(Scaling up)
+az aks scale --resource-group demo-aks --name demoCluster --node-count 2
+
+## Step15: Decreasing Node Counts(Scaling down)
+az aks scale --resource-group demo-aks --name demoCluster --node-count 1
+
+## Step16: Deleting AKS Cluster
+az aks delete --resource-group demo-aks --name demoCluster
+
+
+
+
+
+
 
 
 
